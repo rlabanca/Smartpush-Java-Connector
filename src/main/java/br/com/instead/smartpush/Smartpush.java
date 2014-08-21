@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 import br.com.instead.smartpush.client.SmartpushClient;
-import br.com.instead.smartpush.model.Notification;
+import br.com.instead.smartpush.model.SmartpushNotification;
 import br.com.instead.smartpush.model.Push;
 import br.com.instead.smartpush.model.SmartpushRequest;
 import br.com.instead.smartpush.model.SmartpushResponse;
@@ -25,7 +25,7 @@ public class Smartpush {
 		this.push.setDevId(devId);
 	}
 	
-	public Smartpush push(List<Notification> notifications) {
+	public Smartpush push(List<SmartpushNotification> notifications) {
 		this.push.setNotification(notifications);
 		return this;
 	}

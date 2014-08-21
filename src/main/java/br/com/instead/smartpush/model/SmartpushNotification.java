@@ -3,11 +3,26 @@ package br.com.instead.smartpush.model;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Notification {
+public class SmartpushNotification {
 
 	private String appId;
-	private String platform;
+	private SmartpushPlatform platform;
 	private Map<String, Object> msgParams = new HashMap<String, Object>();
+	
+	public SmartpushNotification() {
+	}
+	
+	public SmartpushNotification(SmartpushPlatform platform) {
+		this.platform = platform;
+		
+		if (this.platform == SmartpushPlatform.IOS) {
+			
+			msgParams.put("aps", new HashMap<String, Object>());
+			
+		}
+		
+		
+	}
 	
 	public String getAppId() {
 		return appId;
@@ -15,11 +30,26 @@ public class Notification {
 	public void setAppId(String appId) {
 		this.appId = appId;
 	}
-	public String getPlatform() {
+	public SmartpushPlatform getPlatform() {
 		return platform;
 	}
-	public void setPlatform(String platform) {
+	public void setPlatform(SmartpushPlatform platform) {
 		this.platform = platform;
+	}
+	
+	public void setMessage(String message) {
+		
+		if (this.platform == SmartpushPlatform.IOS) {
+			getAps().put("alert", message);
+		}
+		
+		getMsgParams().put("message", message);
+	}
+	
+	
+	@SuppressWarnings("unchecked")
+	private HashMap<String, Object> getAps() {
+		return (HashMap<String, Object>) msgParams.get("aps");
 	}
 	
 	public Map<String, Object> getMsgParams() {
