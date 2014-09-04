@@ -2,26 +2,35 @@ package br.com.instead.smartpush.model;
 
 public class SmartpushResponse {
 
-	private int statusCode;
-	private String statusMessage;
+	private int code;
+	private String message;
+	private String pushid;
 	private PushResponse response;
-
-	public int getStatusCode() {
-		return statusCode;
+	
+	public int getCode() {
+		return code;
 	}
 
-	public void setStatusCode(int statusCode) {
-		this.statusCode = statusCode;
+	public void setCode(int code) {
+		this.code = code;
 	}
 	
-	public String getStatusMessage() {
-		return statusMessage;
+	public String getMessage() {
+		return message;
 	}
 
-	public void setStatusMessage(String statusMessage) {
-		this.statusMessage = statusMessage;
+	public void setMessage(String message) {
+		this.message = message;
 	}
-	
+
+	public String getPushid() {
+		return pushid;
+	}
+
+	public void setPushid(String pushid) {
+		this.pushid = pushid;
+	}
+
 	public PushResponse getResponse() {
 		return response;
 	}
@@ -31,14 +40,13 @@ public class SmartpushResponse {
 	}
 
 	public boolean isOk() {
-		return this.statusCode % 100 == 2;
+		return this.code % 100 == 2;
 	}
 
 	@Override
 	public String toString() {
-		return "SmartpushResponse [statusCode=" + statusCode
-				+ ", statusMessage=" + statusMessage + ", response=" + response
-				+ "]";
+		return "SmartpushResponse [code=" + code + ", message=" + message
+				+ ", pushid=" + pushid + ", response=" + response + "]";
 	}
-	
+
 }

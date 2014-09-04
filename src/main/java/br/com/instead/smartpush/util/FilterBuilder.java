@@ -1,41 +1,29 @@
 package br.com.instead.smartpush.util;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import br.com.instead.smartpush.model.SmartpushFilters;
 
 public class FilterBuilder {
 
-	private List<Object> filters = new ArrayList<Object>();
+	private SmartpushFilters filter = new SmartpushFilters();
 	
 	public FilterBuilder() {
 		
 	}
 	
-	public FilterBuilder in(String tag, String... filters) {
+	public FilterBuilder tagEquals(String tag, String value) {
 		
-		List<Object> filter = new ArrayList<Object>();
-		filter.add(tag);
-		filter.add("IN");
-		filter.add(Arrays.deepToString(filters));
-		
-		this.filters.add(filter);
+		filter.addTag(new String[]{tag, "EQ", value});
 		
 		return this;
 	}
 	
-	public String build() {
+	public SmartpushFilters build() {
 		
-		if (this.filters.size() == 0) {
+		if (filter.getT() == null || filter.getT().size() == 0) {
 			return null;
-			
 		}
 		
-		Object[] filtersArray = this.filters.toArray();
-		
-		String filterString = Arrays.deepToString(filtersArray);
-		
-		return filterString;
+		return filter;
 		
 	}
 	

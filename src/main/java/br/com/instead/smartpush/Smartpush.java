@@ -52,8 +52,8 @@ public class Smartpush {
 		} catch (IOException e) {
 			
 			SmartpushResponse response = new SmartpushResponse();
-			response.setStatusCode(500);
-			response.setStatusMessage("Couldn't reach the server. Try again later.");
+			response.setCode(500);
+			response.setMessage("Couldn't reach the server. Try again later.");
 			return response;
 			
 		}

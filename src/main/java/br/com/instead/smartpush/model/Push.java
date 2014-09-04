@@ -10,7 +10,7 @@ public class Push {
 	private String devId;
 	private String when;
 	private List<SmartpushNotification> notification;
-	private String filter;
+	private SmartpushFilters filter;
 	
 	public Push() {
 		
@@ -44,11 +44,11 @@ public class Push {
 		this.notification = notification;
 	}
 
-	public String getFilter() {
+	public SmartpushFilters getFilter() {
 		return filter;
 	}
 
-	public void setFilter(String filter) {
+	public void setFilter(SmartpushFilters filter) {
 		this.filter = filter;
 	}
 

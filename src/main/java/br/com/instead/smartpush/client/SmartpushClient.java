@@ -1,13 +1,18 @@
 package br.com.instead.smartpush.client;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
+import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
+import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
 import br.com.instead.smartpush.model.SmartpushRequest;
@@ -20,8 +25,6 @@ import com.google.gson.GsonBuilder;
 public class SmartpushClient {
 
 	private static SmartpushClient instance;
-	
-	private HttpClient client; 
 	
 	public static SmartpushClient getInstance() {
 		if  (instance == null) {
@@ -43,17 +46,19 @@ public class SmartpushClient {
 		String json = gson.toJson(request);
 		
 		CloseableHttpClient httpclient = HttpClients.createDefault();
-		HttpPost method = new HttpPost("http://localhost/");
+		HttpPost method = new HttpPost("http://api.instad.com.br/push");
 		CloseableHttpResponse response = null;
 		
 		try {
 		    
-			method.setEntity(new StringEntity(json));
+			List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+            nameValuePairs.add(new BasicNameValuePair("data", json));
+            method.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 			
-			response = httpclient.execute(method);			
+			response = httpclient.execute(method);
+			
 			String responseJson = EntityUtils.toString(response.getEntity());
-//			String responseJson = "{\n    \"status_code\": 200,\n    \"status_message\": \"OK\",\n    \"response\": {\n   \"pushid\": \"AFb123d90C00134\"\n}\n}\n\n";
-			
+
 			SmartpushResponse smartResponse = gson.fromJson(responseJson, SmartpushResponse.class);
 			
 			return smartResponse;

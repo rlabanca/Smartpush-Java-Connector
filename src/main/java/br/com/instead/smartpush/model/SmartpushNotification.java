@@ -6,16 +6,16 @@ import java.util.Map;
 public class SmartpushNotification {
 
 	private String appId;
-	private SmartpushPlatform platform;
+	private SmartpushPlatform plataform;
 	private Map<String, Object> msgParams = new HashMap<String, Object>();
 	
 	public SmartpushNotification() {
 	}
 	
 	public SmartpushNotification(SmartpushPlatform platform) {
-		this.platform = platform;
+		this.plataform = platform;
 		
-		if (this.platform == SmartpushPlatform.IOS) {
+		if (this.plataform == SmartpushPlatform.IOS) {
 			
 			msgParams.put("aps", new HashMap<String, Object>());
 			
@@ -31,15 +31,15 @@ public class SmartpushNotification {
 		this.appId = appId;
 	}
 	public SmartpushPlatform getPlatform() {
-		return platform;
+		return plataform;
 	}
 	public void setPlatform(SmartpushPlatform platform) {
-		this.platform = platform;
+		this.plataform = platform;
 	}
 	
 	public void setMessage(String message) {
 		
-		if (this.platform == SmartpushPlatform.IOS) {
+		if (this.plataform == SmartpushPlatform.IOS) {
 			getAps().put("alert", message);
 		}
 		
@@ -65,7 +65,7 @@ public class SmartpushNotification {
 	
 	@Override
 	public String toString() {
-		return "Notification [appId=" + appId + ", platform=" + platform
+		return "Notification [appId=" + appId + ", platform=" + plataform
 				+ ", msgParams=" + msgParams + "]";
 	}
 	
