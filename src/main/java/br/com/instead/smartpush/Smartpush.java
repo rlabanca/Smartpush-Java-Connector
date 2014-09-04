@@ -2,6 +2,7 @@ package br.com.instead.smartpush;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -28,6 +29,10 @@ public class Smartpush {
 	public Smartpush push(List<SmartpushNotification> notifications) {
 		this.push.setNotification(notifications);
 		return this;
+	}
+	
+	public Smartpush push(SmartpushNotification notification) {
+		return push(Arrays.asList(notification));
 	}
 	
 	public Smartpush filteredBy(FilterBuilder filters) {
