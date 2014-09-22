@@ -13,6 +13,7 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
 
 import br.com.instead.smartpush.model.SmartpushRequest;
@@ -50,14 +51,23 @@ public class SmartpushClient {
 		CloseableHttpResponse response = null;
 		
 		try {
-		    
+			
+			System.out.println(json);
+			
 			List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
             nameValuePairs.add(new BasicNameValuePair("data", json));
-            method.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+            
+            UrlEncodedFormEntity form = new UrlEncodedFormEntity(nameValuePairs, "UTF-8");
+            
+            method.setEntity(form);
 			
+            method.setHeader("Content-Type", "application/x-www-form-urlencoded");
+            
 			response = httpclient.execute(method);
 			
 			String responseJson = EntityUtils.toString(response.getEntity());
+			
+			System.out.println(responseJson);
 
 			SmartpushResponse smartResponse = gson.fromJson(responseJson, SmartpushResponse.class);
 			

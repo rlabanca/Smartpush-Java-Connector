@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.List;
 
 import br.com.instead.smartpush.client.SmartpushClient;
+import br.com.instead.smartpush.model.SmartpushFilters;
 import br.com.instead.smartpush.model.SmartpushNotification;
 import br.com.instead.smartpush.model.Push;
 import br.com.instead.smartpush.model.SmartpushRequest;
@@ -16,6 +17,7 @@ import br.com.instead.smartpush.util.FilterBuilder;
 public class Smartpush {
 	
 	private Push push = new Push();
+	private SmartpushFilters filter;
 	private SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 	
 	public static Smartpush withDeveloperId(String developerId) {
@@ -37,7 +39,7 @@ public class Smartpush {
 	
 	public Smartpush filteredBy(FilterBuilder filters) {
 		if (filters != null) {
-			this.push.setFilter(filters.build());
+			this.filter = filters.build();
 			
 		}
 		return this;
@@ -47,7 +49,7 @@ public class Smartpush {
 		
 		this.push.setWhen("now");
 		
-		SmartpushRequest request = new SmartpushRequest();
+		SmartpushRequest request = new SmartpushRequest(this.filter);
 		request.setPush(this.push);
 		
 		try {
