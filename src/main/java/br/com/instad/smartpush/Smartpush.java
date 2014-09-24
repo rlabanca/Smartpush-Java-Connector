@@ -1,4 +1,4 @@
-package br.com.instead.smartpush;
+package br.com.instad.smartpush;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -6,13 +6,13 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
-import br.com.instead.smartpush.client.SmartpushClient;
-import br.com.instead.smartpush.model.SmartpushFilters;
-import br.com.instead.smartpush.model.SmartpushNotification;
-import br.com.instead.smartpush.model.Push;
-import br.com.instead.smartpush.model.SmartpushRequest;
-import br.com.instead.smartpush.model.SmartpushResponse;
-import br.com.instead.smartpush.util.FilterBuilder;
+import br.com.instad.smartpush.client.SmartpushClient;
+import br.com.instad.smartpush.model.Push;
+import br.com.instad.smartpush.model.SmartpushFilters;
+import br.com.instad.smartpush.model.SmartpushNotification;
+import br.com.instad.smartpush.model.SmartpushRequest;
+import br.com.instad.smartpush.model.SmartpushResponse;
+import br.com.instad.smartpush.util.FilterBuilder;
 
 public class Smartpush {
 	

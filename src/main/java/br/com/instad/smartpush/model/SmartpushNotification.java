@@ -1,4 +1,4 @@
-package br.com.instead.smartpush.model;
+package br.com.instad.smartpush.model;
 
 import java.util.HashMap;
 import java.util.Map;

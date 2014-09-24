@@ -1,6 +1,6 @@
-package br.com.instead.smartpush.util;
+package br.com.instad.smartpush.util;
 
-import br.com.instead.smartpush.model.SmartpushFilters;
+import br.com.instad.smartpush.model.SmartpushFilters;
 
 public class FilterBuilder {
 

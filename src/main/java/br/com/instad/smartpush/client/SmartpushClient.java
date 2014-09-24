@@ -1,4 +1,4 @@
-package br.com.instead.smartpush.client;
+package br.com.instad.smartpush.client;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -16,8 +16,8 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
 
-import br.com.instead.smartpush.model.SmartpushRequest;
-import br.com.instead.smartpush.model.SmartpushResponse;
+import br.com.instad.smartpush.model.SmartpushRequest;
+import br.com.instad.smartpush.model.SmartpushResponse;
 
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
