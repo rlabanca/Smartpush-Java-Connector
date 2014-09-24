@@ -67,9 +67,4 @@ public class Smartpush {
 		
 	}
 	
-	public SmartpushResponse at(Date when) {
-		this.push.setWhen(this.dateFormat.format(when));
-		return null;
-	}
-	
 }

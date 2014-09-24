@@ -8,6 +8,7 @@ public class SmartpushNotification {
 	private String appId;
 	private SmartpushPlatform plataform;
 	private Map<String, Object> msgParams = new HashMap<String, Object>();
+	private boolean prod;
 	
 	public SmartpushNotification() {
 	}
@@ -63,6 +64,14 @@ public class SmartpushNotification {
 		this.msgParams.put(key, value);
 	}
 	
+	public boolean isProd() {
+		return prod;
+	}
+
+	public void setProd(boolean prod) {
+		this.prod = prod;
+	}
+
 	@Override
 	public String toString() {
 		return "Notification [appId=" + appId + ", platform=" + plataform
