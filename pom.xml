@@ -1,6 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>br.com.instead.smartpush</groupId>
+	<groupId>br.com.instad.smartpush</groupId>
 	<artifactId>smartpush-java-connector</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Smartpush Connector</name>
@@ -17,5 +17,18 @@
 			<version>4.3.5</version>
 		</dependency>
   	</dependencies>
+  
+  	<distributionManagement>
+		<repository>
+			<id>javadesenv-01</id>
+			<name>javadesenv-01-releases</name>
+			<url>http://artifactory.buscapecompany.com/artifactory/BuscaPe-3party-local</url>
+		</repository>
+		<snapshotRepository>
+			<id>javadesenv-01</id>
+			<name>javadesenv-01-snapshots</name>
+			<url>http://artifactory.buscapecompany.com/artifactory/BuscaPe-3party-local</url>
+		</snapshotRepository>
+	</distributionManagement>
   
 </project>
