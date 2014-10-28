@@ -17,6 +17,12 @@ public class FilterBuilder {
 		return this;
 	}
 	
+	public FilterBuilder unique() {
+		filter.setUnique(true);
+		
+		return this;
+	}
+	
 	public SmartpushFilters build() {
 		
 		if (filter.getT() == null || filter.getT().size() == 0) {
