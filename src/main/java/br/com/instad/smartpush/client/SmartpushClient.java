@@ -70,10 +70,10 @@ public class SmartpushClient {
 			System.out.println(responseJson);
 
 			SmartpushResponse smartResponse = gson.fromJson(responseJson, SmartpushResponse.class);
+			smartResponse.setRequestJson(json);
+			smartResponse.setResponseJson(responseJson);
 			
 			return smartResponse;
-			
-			
 			
 		} finally {
 			

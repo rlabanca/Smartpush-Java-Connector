@@ -6,7 +6,25 @@ public class SmartpushResponse {
 	private String message;
 	private String pushid;
 	private PushResponse response;
+	private transient String requestJson;
+	private transient String responseJson;
 	
+	public String getRequestJson() {
+		return requestJson;
+	}
+
+	public void setRequestJson(String requestJson) {
+		this.requestJson = requestJson;
+	}
+
+	public String getResponseJson() {
+		return responseJson;
+	}
+
+	public void setResponseJson(String responseJson) {
+		this.responseJson = responseJson;
+	}
+
 	public int getCode() {
 		return code;
 	}
