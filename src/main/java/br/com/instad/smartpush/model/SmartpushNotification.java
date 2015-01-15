@@ -42,9 +42,10 @@ public class SmartpushNotification {
 		
 		if (this.plataform == SmartpushPlatform.IOS) {
 			getAps().put("alert", message);
+		} else {
+			getMsgParams().put("message", message);
 		}
 		
-		getMsgParams().put("message", message);
 	}
 	
 	
