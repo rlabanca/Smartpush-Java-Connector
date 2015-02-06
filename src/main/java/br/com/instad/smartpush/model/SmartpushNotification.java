@@ -9,12 +9,14 @@ public class SmartpushNotification {
 	private SmartpushPlatform plataform;
 	private Map<String, Object> msgParams = new HashMap<String, Object>();
 	private boolean prod;
+	private boolean silent;
 	
 	public SmartpushNotification() {
 	}
 	
-	public SmartpushNotification(SmartpushPlatform platform) {
+	public SmartpushNotification(SmartpushPlatform platform, boolean silent) {
 		this.plataform = platform;
+		this.silent = silent;
 		
 		if (this.plataform == SmartpushPlatform.IOS) {
 			
@@ -42,6 +44,9 @@ public class SmartpushNotification {
 		
 		if (this.plataform == SmartpushPlatform.IOS) {
 			getAps().put("alert", message);
+			if ( ! silent ) {
+				getAps().put("sound", "default");
+			}
 		} else {
 			getMsgParams().put("message", message);
 		}
