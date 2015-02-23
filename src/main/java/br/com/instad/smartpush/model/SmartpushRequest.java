@@ -5,7 +5,7 @@ public class SmartpushRequest {
 
 	private Push push;
 	private SmartpushFilters filter;
-
+	
 	public SmartpushRequest() {
 		
 	}
@@ -29,7 +29,7 @@ public class SmartpushRequest {
 	public void setFilter(SmartpushFilters filter) {
 		this.filter = filter;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "SmartpushRequest [push=" + push + ", filter=" + filter + "]";

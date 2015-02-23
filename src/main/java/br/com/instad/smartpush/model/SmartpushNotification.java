@@ -10,6 +10,7 @@ public class SmartpushNotification {
 	private Map<String, Object> msgParams = new HashMap<String, Object>();
 	private boolean prod;
 	private boolean silent;
+	private boolean unique;
 	
 	public SmartpushNotification() {
 	}
@@ -40,6 +41,30 @@ public class SmartpushNotification {
 		this.plataform = platform;
 	}
 	
+	public SmartpushPlatform getPlataform() {
+		return plataform;
+	}
+
+	public void setPlataform(SmartpushPlatform plataform) {
+		this.plataform = plataform;
+	}
+
+	public boolean isSilent() {
+		return silent;
+	}
+
+	public void setSilent(boolean silent) {
+		this.silent = silent;
+	}
+
+	public boolean isUnique() {
+		return unique;
+	}
+
+	public void setUnique(boolean unique) {
+		this.unique = unique;
+	}
+
 	public void setMessage(String message) {
 		
 		if (this.plataform == SmartpushPlatform.IOS) {
