@@ -5,14 +5,24 @@ import java.util.List;
 
 public class Push {
 
+	private String alias;
 	private String devId;
 	private String when;
-	private List<SmartpushNotification> notification;
+	private boolean prod;
+	private List<SmartpushNotification> notifications;
 	
 	public Push() {
 		
 	}
 	
+	public void setAlias( String alias ) {
+		this.alias = alias;
+	}
+	
+	public String getAlias() {
+		return this.alias;
+	}
+
 	public String getDevId() {
 		return devId;
 	}
@@ -29,19 +39,25 @@ public class Push {
 		this.when = when;
 	}
 
-	public List<SmartpushNotification> getNotification() {
-		return notification;
+	public List<SmartpushNotification> getNotifications() {
+		return notifications;
 	}
 
-	public void setNotification(List<SmartpushNotification> notification) {
-		this.notification = notification;
+	public void setNotifications(List<SmartpushNotification> notifications) {
+		this.notifications = notifications;
 	}
 	
+	public boolean isProd() {
+		return prod;
+	}
+
+	public void setProd(boolean prod) {
+		this.prod = prod;
+	}
+
 	@Override
 	public String toString() {
-		return "Push [devId=" + devId + ", when=" + when + ", notification="
-				+ notification + "]";
-	}
-	
-	
+		return "Push [devId=" + devId + ", when=" + when + ", prod=" + prod
+				+ ", notification=" + notifications + "]";
+	}	
 }

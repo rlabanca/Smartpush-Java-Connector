@@ -47,7 +47,7 @@ public class SmartpushClient {
 		String json = gson.toJson(request);
 		
 		CloseableHttpClient httpclient = HttpClients.createDefault();
-		HttpPost method = new HttpPost("http://api.instad.com.br/push");
+		HttpPost method = new HttpPost("http://api.getmo.com.br/push");
 		CloseableHttpResponse response = null;
 		
 		try {

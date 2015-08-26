@@ -29,12 +29,17 @@ public class Smartpush {
 	}
 	
 	public Smartpush push(List<SmartpushNotification> notifications) {
-		this.push.setNotification(notifications);
+		this.push.setNotifications(notifications);
 		return this;
 	}
 	
 	public Smartpush push(SmartpushNotification notification) {
 		return push(Arrays.asList(notification));
+	}
+	
+	public Smartpush setAlias(String alias) {
+		this.push.setAlias(alias);
+		return this;
 	}
 	
 	public Smartpush filteredBy(FilterBuilder filters) {
@@ -62,9 +67,6 @@ public class Smartpush {
 			response.setCode(500);
 			response.setMessage("Couldn't reach the server. Try again later.");
 			return response;
-			
 		}
-		
 	}
-	
 }
