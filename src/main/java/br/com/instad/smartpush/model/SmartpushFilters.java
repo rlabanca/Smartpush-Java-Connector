@@ -6,12 +6,13 @@ import java.util.List;
 import com.google.gson.annotations.SerializedName;
 
 public class SmartpushFilters {
-
-	@SerializedName("T")
+	
+	@SerializedName("type")
+	private String type = "TAG";
+	
+	@SerializedName("rules")
 	private List<Object> T;
 	
-	private boolean unique;
-
 	public List<Object> getT() {
 		return T;
 	}
@@ -27,13 +28,4 @@ public class SmartpushFilters {
 		T.add(tag);
 	}
 
-	public boolean isUnique() {
-		return unique;
-	}
-
-	public void setUnique(boolean unique) {
-		this.unique = unique;
-	}
-	
-	
 }
