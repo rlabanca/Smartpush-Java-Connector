@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>br.com.instad.smartpush</groupId>
 	<artifactId>smartpush-java-connector</artifactId>
-	<version>0.3</version>
+	<version>0.4</version>
 	<name>Smartpush Connector</name>
   
   	<dependencies>
