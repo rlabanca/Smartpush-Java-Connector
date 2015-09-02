@@ -42,6 +42,11 @@ public class Smartpush {
 		return this;
 	}
 	
+	public Smartpush setProd( boolean prod ) {
+		this.push.setProd(prod);
+		return this;
+	}
+	
 	public Smartpush filteredBy(FilterBuilder filters) {
 		if (filters != null) {
 			this.filter = filters.build();
